@@ -11,5 +11,9 @@ Definizione di 4 primitive: def_class, new, getv e getvx.
           dove <instance-name>, <class-name> e <slot-name> sono simboli, mentre <value> `e un qualunque termine Prolog, incluso un “metodo”.
 
   3) getv: estrae il valore di un campo da una classe.
+      getv ( <instance>, <slot-name>, <result> )
+          dove <instance> è un’istanza di una classe (nel caso più semplice un simbolo) e <slot-name> è un simbolo. Il valore recuperato viene unificato con <result> ed è il valore associato a <slot-name> nell’istanza (tale valore potrebbe anche essere ereditato dalla classe o da uno dei suoi antenati). Se <slot-name> non esiste               nella classe dell’istanza il predicato fallisce.
 
   4) getvx: estrae il valore da una classe percorrendo una catena di attributi.
+      getvx ( <instance>, <slot-names>, <result> )
+          dove <instance> è un’istanza di una classe (nel caso più semplice un simbolo) e <slot-namea> è una lista non vuota di simboli, che rappresentano attributi nei vari oggetti recuperati. Il valore recuperato viene unificato con <result> ed è il valore associato all’ultimo elemento di <slot-names> nell’ultima istanza (tale               valore potrebbe anche essere ereditato dalla classe o da uno dei suoi antenati). Se uno degli elementi di <slot-names> non esiste nella classe dell’istanza il predicato fallisce.
